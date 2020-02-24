@@ -1,5 +1,9 @@
 # Onset Roleplay Admin Panel
-![](https://img.shields.io/github/stars/skrilax91/Onset-Roleplay-Admin-Panel?style=pandao) ![](https://img.shields.io/github/forks/skrilax91/Onset-Roleplay-Admin-Panel) ![](https://img.shields.io/github/tag/skrilax91/Onset-Roleplay-Admin-Panel) ![](https://img.shields.io/github/release/skrilax91/Onset-Roleplay-Admin-Panel) ![](https://img.shields.io/github/issues/skrilax91/Onset-Roleplay-Admin-Panel)
+![](https://img.shields.io/github/stars/skrilax91/Onset-Roleplay-Admin-Panel?style=pandao)
+![](https://img.shields.io/github/forks/skrilax91/Onset-Roleplay-Admin-Panel)
+![](https://img.shields.io/github/release/skrilax91/Onset-Roleplay-Admin-Panel)
+![](https://img.shields.io/github/issues/skrilax91/Onset-Roleplay-Admin-Panel)
+![](https://img.shields.io/github/license/skrilax91/Onset-Roleplay-Admin-Panel) 
 
 ORAP is a fully JS panel for the game Onset with onsetrp package, it have many fonctionnality to help you in your admin job.
 ORAP use steam autentification in order to authentificate admin, just add someone admin in the game and it will has access to the panel
