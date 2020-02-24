@@ -1,0 +1,105 @@
+<% include header %>
+
+<%
+    var users = locals.users;
+%>
+
+<div class="content-wrapper">
+    
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Liste des Joueurs</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/"><%= locals.config.name %></a></li>
+                        <li class="breadcrumb-item active">Joueurs</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-tasks"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">NOMBRES DE JOUEURS</span>
+                        <span class="info-box-number"><%= users.length %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Liste des Joueurs :
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="effectif">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">SteamID</th>
+                                        <th scope="col">Numéro de téléphone</th>
+                                        <th scope="col">argent en banque</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for( var k in users ){
+                                        var tbl = users[k];
+                                    %>
+                                    <tr>
+                                        <td>
+                                            <% if(tbl.is_online != 0){ %><i class="fas fa-circle text-success"><% }else{ %><i class="fas fa-circle text-danger"><% }%>
+                                        </td>
+                                        <td><%= tbl.id %></td>
+                                        <td><%= tbl.name %></td>
+                                        <td><%= tbl.steamid %></td>
+                                        <td><%= tbl.phone_number %></td>
+                                        <td><%= tbl.bank_balance %></td>
+                                        <td class="text-center">
+                                            <!--<a type="button" href="/users/profil/<%= tbl.id %>"><i class="fas fa-sign-in-alt"></i></a>-->
+                                        </td>
+                                    </tr>  
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </section>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        $('#effectif').DataTable({
+            "lengthChange": true,
+            "searching": true,
+            "pageLength": 25,
+        });  
+
+        setActive('header-effectif')
+
+        $('#adduserbutton').on('click', () => {
+            $('#adduserform').submit();
+        });
+    } );
+</script>  
+
+<% include footer %>
