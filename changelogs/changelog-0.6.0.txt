@@ -1,0 +1,36 @@
+Ajout :
+- Ajout d'une pastille ADMIN sur le profil des admins
+- Ajout de la possibilité de suspendre un utilisateur
+- Possibilité de gérer le statut admin de quelqu'un
+- Onglet RH pour Coin Coin
+
+
+Modifications :
+- Remise en place des SecureToken
+- refonte du système de vérification des permissions (function checkPerm)
+- modification de la carte des secteurs
+- Modification du CGR
+
+
+Suppression :
+- suppression du modèle de rapport
+
+
+
+
+
+
+Changed Files :
+/config.json
+/middlewares/user.js
+/views/inc/header.ejs
+/views/inc/footer.ejs
+/views/cgr/create.ejs
+/views/cgr/view.ejs
+/views/info/radio.ejs
+/views/users/profil.ejs
+/routes/index.js
+/routes/views/users/profil.js
+
+- /views/info/report.ejs
+- /views/info/report.js

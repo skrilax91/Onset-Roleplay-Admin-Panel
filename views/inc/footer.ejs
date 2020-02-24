@@ -1,0 +1,59 @@
+			<!-- Control Sidebar -->
+			<aside class="control-sidebar control-sidebar-dark">
+				<!-- Control sidebar content goes here -->
+			</aside>
+			<!-- /.control-sidebar -->
+
+			<!-- Main Footer -->
+			<footer class="main-footer">
+				<strong>Copyright &copy; 2020 <a href="https://onset-roleplay.fr/">O.R.P.F</a>.
+				All rights reserved.
+				<div class="float-right d-none d-sm-inline-block">
+					<b>Version</b> 0.0.1
+				</div>
+			</footer>
+		</div>
+
+	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+		<script src="/assets/js/fastclick.js"></script> 
+		<script src="/assets/js/adminlte.min.js"></script>
+		<script src="/assets/js/jquery.sparkline.min.js"></script>  
+		<script src="/assets/js/jquery.slimscroll.min.js"></script>  
+		<script src="/assets/js/chart.min.js"></script>
+		<script src="/assets/js/demo.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/jquery.overlayScrollbars.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.17.6/dist/sweetalert2.all.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+		
+
+		<script src="/assets/js/app.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function(event) {
+				const Toast = Swal.mixin({
+			    	toast: true,
+			    	position: 'top-end',
+			    	showConfirmButton: false,
+			    	timer: 3000
+			    });
+				<% if(hasFlash()){ %>
+					Toast.fire({
+						<% var flash = launchFlash() %>
+			        	type: "<%= flash.type %>",
+			        	title: "<%= flash.content %>"
+			    	})
+				<% } %>
+
+
+			});
+		</script>
+	</body>
+</html>
