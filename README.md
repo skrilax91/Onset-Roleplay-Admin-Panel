@@ -5,7 +5,7 @@ ORAP is a fully JS panel for the game Onset with onsetrp package, it have many f
 ORAP use steam autentification in order to authentificate admin, just add someone admin in the game and it will has access to the panel
 
 ## Features
-- (on development) Players List
+- Players List
 - (on development) Players Profiles (ability to modifie users informations)
 - (on development) Ban List (ability to add and remove bans)
 - (on development) Items List
