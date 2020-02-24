@@ -1,5 +1,5 @@
 module.exports = async ( req, res, next ) => {
-    if( req.session.auth == null && req.cookies['ADT_connect_token'] != null ){
+    if( req.session.auth == null && req.cookies['ADMIN_connect_token'] != null ){
         database.query( "SELECT * FROM users WHERE login_token = ?", [ req.cookies['ADT_connect_token'] ], ( err, results ) => {
             if( results && results.length > 0 ){
                 req.session.auth = results[0];
