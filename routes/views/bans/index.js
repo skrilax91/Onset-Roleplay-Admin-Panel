@@ -29,13 +29,13 @@ module.exports.bans_remove = async ( req, res, next ) => {
 
     if( ban.length < 1 ){
         req.flash('error', "Ce bannissement n'existe pas !");
-        res.redirect('/bans/')
+        res.reload();
         return;
     }
 
     database.query('DELETE FROM bans WHERE id = ?', [id] );
     req.flash('success', "Ban révoqué");
-    res.redirect('/bans/');
+    res.reload();
 
     
 };
@@ -81,27 +81,4 @@ module.exports.bans_add = async ( req, res, next ) => {
         res.reload();
     })
 
-};
-
-module.exports.bans_remove = async ( req, res, next ) => {
-    id = req.params.id;
-    var ban = await new Promise( ( resolve, reject ) => {
-        database.query( 'SELECT * FROM bans WHERE id = ?', [ id ], ( err, results ) => {
-            if( err ){ reject(); throw err };
-
-            resolve( results[0] || {} );
-        })
-    });
-
-    if( ban.length < 1 ){
-        req.flash('error', "Ce bannissement n'existe pas !");
-        res.reload();
-        return;
-    }
-
-    database.query('DELETE FROM bans WHERE id = ?', [id] );
-    req.flash('success', "Ban révoqué");
-    res.reload();
-
-    
 };

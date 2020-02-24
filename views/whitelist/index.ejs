@@ -1,0 +1,143 @@
+<% include header %>
+
+<%
+    var whitelist = locals.whitelist;
+%>
+
+<div class="content-wrapper">
+    
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Liste des whitelist</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/"><%= locals.config.name %></a></li>
+                        <li class="breadcrumb-item active">Liste des whitelist</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="fas fa-shield-alt"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">STATUT DE LA WHITELIST</span>
+                        <span class="info-box-number badge badge-success">Activée</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-tasks"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">NOMBRES DE WHITELIST</span>
+                        <span class="info-box-number"><%= whitelist.length %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="offset-md-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-blue"><i class="fas fa-plus-circle"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">AJOUTER UNE WHITELIST</span>
+                        <a href="#" data-toggle="modal" data-target="#addwhitelist" class="btn btn-success btn-sm btn-block" role="button">
+                            <i class="fas fa-plus-circle"></i> Ajouter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addwhitelist">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ajouter une Whitelist</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/whitelist/add/" method="POST" id="addwhitelistform">
+                            <div class="form-group">
+                                <label for="steamid">SteamID</label>
+                                <input type="text" class="form-control" name="steamid" id="steamid" placeholder="76561198984576972">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer justify-content-between">
+                        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" id="addwhitelistbutton" class="btn btn-primary">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Liste des whitelist :
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="whitelist">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">SteamID</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for( var k in whitelist ){
+                                        var tbl = whitelist[k];
+                                    %>
+                                    <tr>
+                                        <td><%= tbl.id %></td>
+                                        <td><%= tbl.steamid %></td>
+                                        <td class="text-center">
+                                            <a type="button" href="/whitelist/remove/<%= tbl.id %>"><i class="fas fa-user-times"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </section>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        $('#whitelist').DataTable({
+            "lengthChange": true,
+            "searching": true,
+            "pageLength": 25,
+        });  
+
+        setActive('header-whitelist')
+        $('#addwhitelistbutton').on('click', () => {
+            $('#addwhitelistform').submit();
+        });
+    } );
+</script>  
+
+<% include footer %>
