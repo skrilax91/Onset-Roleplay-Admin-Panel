@@ -7,13 +7,13 @@ ORAP use steam autentification in order to authentificate admin, just add someon
 ## Features
 - Players List
 - (on development) Players Profiles (ability to modifie users informations)
-- (on development) Ban List (ability to add and remove bans)
+- Ban List (ability to add and remove bans)
 - (on development) Items List
 - (on development) Items Manager (ability to add, remove and modify items)
 - (on development) Shops List
 - (on development) Shop Manager (ability to add, remove and modify Shops)
 - (on development) Logs
-- (on development) Whitelist manager (ability to add and remove someone of the whitelist)
+- Whitelist manager (ability to add and remove someone of the whitelist)
 
 
 ## Requirements
