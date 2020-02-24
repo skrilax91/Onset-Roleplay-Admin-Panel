@@ -10,7 +10,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Liste des Joueurs</h1>
+                    <h1>Liste des bannissements</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -31,6 +31,52 @@
                     <div class="info-box-content">
                         <span class="info-box-text">NOMBRES DE BANNISSEMENT</span>
                         <span class="info-box-number"><%= bans.length %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="offset-md-6 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-blue"><i class="fas fa-plus-circle"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">AJOUTER UN BANNISSEMENT</span>
+                        <a href="#" data-toggle="modal" data-target="#addban" class="btn btn-success btn-sm btn-block" role="button">
+                            <i class="fas fa-plus-circle"></i> Ajouter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addban">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ajouter un bannissement</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/bans/add/" method="POST" id="addbanform">
+                            <div class="form-group">
+                                <label for="steamid">SteamID</label>
+                                <input type="text" class="form-control" name="steamid" id="steamid" placeholder="76561198984576972">
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Temps</label>
+                                <input type="text" class="form-control" name="time" id="time">
+                            </div>
+                            <div class="form-group">
+                                <label for="reason">Raison du bannissement</label>
+                                <input type="text" class="form-control" name="reason" id="reason" placeholder="Entrez une raison">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer justify-content-between">
+                        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" id="addbanbutton" class="btn btn-primary">Ajouter</button>
                     </div>
                 </div>
             </div>
@@ -66,9 +112,10 @@
                                         <td><%= tbl.ban_time %></td>
                                         <td><%= tbl.reason %></td>
                                         <td class="text-center">
-                                            <!--<a type="button" href="/users/profil/<%= tbl.id %>"><i class="fas fa-sign-in-alt"></i></a>-->
+                                            <a type="button" href="/bans/remove/<%= tbl.id %>"><i class="fas fa-user-times"></i></a>
                                         </td>
-                                    </tr>  
+                                    </tr>
+
                                     <% } %>
                                 </tbody>
                             </table>
@@ -89,6 +136,9 @@
         });  
 
         setActive('header-banlist')
+        $('#addbanbutton').on('click', () => {
+            $('#addbanform').submit();
+        });
     } );
 </script>  
 
