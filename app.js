@@ -21,7 +21,7 @@ var requestIp = require('request-ip');
 var request = require('request');
 
 var server = express();
-server.use(favicon("assets/img/logo.png"));
+server.use(favicon("assets/img/favicon.png"));
 
 var http = require('http').createServer( server );
 
