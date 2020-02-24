@@ -1,9 +1,9 @@
-#Onset Roleplay Admin Panel
+# Onset Roleplay Admin Panel
 ![](https://img.shields.io/github/stars/skrilax91/Onset-Roleplay-Admin-Panel?style=pandao) ![](https://img.shields.io/github/forks/skrilax91/Onset-Roleplay-Admin-Panel) ![](https://img.shields.io/github/tag/skrilax91/Onset-Roleplay-Admin-Panel) ![](https://img.shields.io/github/release/skrilax91/Onset-Roleplay-Admin-Panel) ![](https://img.shields.io/github/issues/skrilax91/Onset-Roleplay-Admin-Panel)
 
 ORAP is a fully JS panel for the game Onset with onsetrp package, it have many fonctionnality to help you in your admin job.
 
-##Features
+## Features
 - Players List
 - Players Profiles (ability to modifie users informations)
 - Ban List (ability to add and remove bans)
@@ -19,7 +19,7 @@ ORAP is a fully JS panel for the game Onset with onsetrp package, it have many f
 - NodeJS with pm2
 - Web server must allow UDP connections
 
-##Installation
+## Installation
 **1. Install NodeJS**
 The easiest way to install the most recent LTS version of Node 10.x is to use the package manager to get it from the Ubuntu binary distributions repository. This can be done very simply by running the following two commands on your terminal:
 ```
